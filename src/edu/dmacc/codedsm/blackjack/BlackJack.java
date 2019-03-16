@@ -21,17 +21,12 @@ public class BlackJack {
         while (continueGame) {
             System.out.println("Enter 1 to Hit, 2 to Stand");
             String input = in.next();
-            if (input.length() == 1 && Character.isDigit(input.charAt(0))) {
-                int integerInput = Integer.parseInt(input);
-                if (integerInput == 1) {
-                    List<Card> nextPlayerCard = DeckRandomizer.chooseRandomCards(deck, 1);
-                    playerHand.addAll(nextPlayerCard);
-                    removeCardFromDeck(deck, nextPlayerCard.get(0));
-                } else if (integerInput == 2) {
-                    continueGame = false;
-                } else {
-                    showErrorMessage();
-                }
+            if (input.equals("1")) {
+                List<Card> nextPlayerCard = DeckRandomizer.chooseRandomCards(deck, 1);
+                playerHand.addAll(nextPlayerCard);
+                removeCardFromDeck(deck, nextPlayerCard.get(0));
+            } else if (input.equals("2")) {
+                continueGame = false;
             } else {
                 showErrorMessage();
             }
